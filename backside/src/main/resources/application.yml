@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: backside
+
+server:
+  port: 8090
