@@ -9,5 +9,5 @@ backside:
   ribbon:
     eureka:
       enabled: false
-    listOfServers: localhost:8080,localhost:8081,localhost:8082
+    listOfServers: 54.233.124.156:8091,15.228.9.62:8090
     ServerListRefreshInterval: 15000

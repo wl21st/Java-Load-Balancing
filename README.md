@@ -15,3 +15,13 @@ mvn spring-boot:run "-Dspring-boot.run.arguments=--server.port=8081"
 mvn spring-boot:run "-Dspring-boot.run.arguments=--server.port=8082"
 ```
 Three instances of the server will be running locally.
+
+## Building a new version
+To build the dockerfile:
+
+```
+docker build -t backside .
+docker tag backside hugolarsen/load-balancer
+docker login
+docker push hugolarsen/load-balancer
+```
