@@ -21,7 +21,7 @@ To build the dockerfile:
 
 ```
 docker build -t backside .
-docker tag backside hugolarsen/load-balancer
+docker tag backside hugolarsen/load-balancer-backside
 docker login
-docker push hugolarsen/load-balancer
+docker push hugolarsen/load-balancer-backside
 ```
