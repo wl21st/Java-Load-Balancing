@@ -1,15 +1,16 @@
 package main;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 @RestController
 @SpringBootApplication
@@ -20,14 +21,6 @@ public class BackSideApplication {
 	@Autowired
 	Environment environment;
 
-	@Bean
-	RestTemplate restTemplate() {
-		return new RestTemplate();
-	}
-
-	@Autowired
-	private RestTemplate restTemplate;
-
 	public static void main(String[] args) {
 		SpringApplication.run(BackSideApplication.class, args);
 	}
@@ -35,12 +28,31 @@ public class BackSideApplication {
 	@RequestMapping(value = "/")
 	public String get() {
 		log.info("Ribbon verificando...");
-		return "Olá!";
+		return null;
 	}
 
 	@RequestMapping(value = "/host")
 	public String host() {
-		return environment.getProperty("server.port");
+		try {
+			InetAddress inetAddress = InetAddress.getLocalHost();
+			StringBuilder result = new StringBuilder();
+			result.append("<b>IP Address:</b>").append(inetAddress.getHostAddress()).append("<br>");
+			result.append("<b>Host Name:</b>").append(inetAddress.getHostName()).append("<br>");
+			result.append("<b>Port:</b> ").append(environment.getProperty("server.port")).append("<br>");
+
+			result.append("<b>Properties:</b>");
+			result.append("<ul>");
+			for (Object propertyKeyName : System.getProperties().keySet()) {
+				result.append("<li>");
+				result.append(propertyKeyName).append(": ").append(System.getProperty(propertyKeyName.toString()));
+				result.append("</li>");
+			}
+			result.append("</ul>");
+
+			return result.toString();
+		} catch (UnknownHostException e) {
+			return e.toString();
+		}
 	}
 
 }

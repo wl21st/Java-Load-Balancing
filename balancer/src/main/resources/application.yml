@@ -9,5 +9,5 @@ backside:
   ribbon:
     eureka:
       enabled: false
-    listOfServers: 54.94.132.80:8090,18.231.64.78:8091,18.228.28.160:8092
+    listOfServers: 18.230.126.194:8092,18.230.134.5:8092,15.228.3.52:8092
     ServerListRefreshInterval: 15000

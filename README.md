@@ -17,7 +17,7 @@ mvn spring-boot:run "-Dspring-boot.run.arguments=--server.port=8082"
 Three instances of the server will be running locally.
 
 ## Building a new version
-To build the dockerfile:
+Building a new Docker image into Docker Hub:
 
 ```
 docker build -t backside .
