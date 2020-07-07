@@ -1,4 +1,4 @@
-# Distributed-Systems-Load-Balancing
+# Java-Load-Balancing
 Load balancing algorithm implementation, provided by Ribbon (Netflix OSS), for Distributed Systems class at FURB.
 
 Authors
