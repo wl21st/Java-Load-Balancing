@@ -7,7 +7,7 @@ Authors
 > [Lucas Vanderlinde](https://github.com/LucasVander) <br>
 
 ### Running the backside
-To run the backside locally remember to change the the ```application.yml``` according code below:
+To run the backside locally remember to change the ```application.yml``` according code below:
 ```
 listOfServers: localhost:8080,localhost:8081,localhost:8082
 ```
